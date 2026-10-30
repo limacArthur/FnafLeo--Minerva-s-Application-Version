@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bdkovd4uuafro"]
+
+[ext_resource type="Texture2D" uid="uid://b6ry5ykrneiwu" path="res://Sprites/Animatronics/Dog/Cute Creepy Animatronic Dog.png" id="1_vto6e"]
+[ext_resource type="Texture2D" uid="uid://chdsp3b7cu72q" path="res://Sprites/Animatronics/Dog/Worn Animatronic Dog Mascot.png" id="2_m4jdw"]
+[ext_resource type="Texture2D" uid="uid://bxvfer7cy2sfl" path="res://Sprites/Animatronics/Dog/Dog jumpscare.png" id="3_um5mt"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vto6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m4jdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_um5mt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

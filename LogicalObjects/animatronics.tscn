@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bsn00ba4yfuil"]
+
+[ext_resource type="Script" uid="uid://kbpm2cmw1fl4" path="res://Scripts/Managers/RoomManager.cs" id="1_5vixh"]
+[ext_resource type="SpriteFrames" uid="uid://cpit3sj0anvma" path="res://Sprites/Frames/cow.tres" id="2_po8hv"]
+[ext_resource type="SpriteFrames" uid="uid://bdkovd4uuafro" path="res://Sprites/Frames/dog.tres" id="2_wm3x0"]
+[ext_resource type="SpriteFrames" uid="uid://ktl5q3qcdv7e" path="res://Sprites/Frames/mouse.tres" id="4_vs6m6"]
+[ext_resource type="SpriteFrames" uid="uid://barc8a6yjnk6j" path="res://Sprites/Frames/rabbit.tres" id="5_k35cg"]
+[ext_resource type="SpriteFrames" uid="uid://cl13iyh7fx0oj" path="res://Sprites/Frames/wraith.tres" id="6_yxsla"]
+
+[node name="Animatronics" type="Node" unique_id=107853117]
+script = ExtResource("1_5vixh")
+
+[node name="Bessie the cow" type="AnimatedSprite2D" parent="." unique_id=1878017983]
+sprite_frames = ExtResource("2_po8hv")
+
+[node name="Toby the dog" type="AnimatedSprite2D" parent="." unique_id=1038074226]
+sprite_frames = ExtResource("2_wm3x0")
+
+[node name="Harry the mouse" type="AnimatedSprite2D" parent="." unique_id=155384692]
+sprite_frames = ExtResource("4_vs6m6")
+
+[node name="Carrot the rabbit" type="AnimatedSprite2D" parent="." unique_id=886745227]
+sprite_frames = ExtResource("5_k35cg")
+
+[node name="Wraith the chackal" type="AnimatedSprite2D" parent="." unique_id=190137454]
+sprite_frames = ExtResource("6_yxsla")

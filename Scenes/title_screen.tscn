@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://d2j0jq1ptwfns"]
+
+[ext_resource type="AudioStream" uid="uid://1u14tc4oxmqg" path="res://Audio/TemporaryTitle.mp3" id="1_o1e67"]
+[ext_resource type="Script" uid="uid://df84b4egts27" path="res://Scripts/Title/TitleAudio.cs" id="2_ycay6"]
+[ext_resource type="Texture2D" uid="uid://ern4wmyadky7" path="res://Sprites/TitleScreen/Tittle bakcground.png" id="3_bsy20"]
+[ext_resource type="VideoStream" uid="uid://cbih7dqe31cdh" path="res://Objects/Video-Minerva2.ogv" id="4_o1e67"]
+[ext_resource type="Script" uid="uid://c6q6v6b48sriq" path="res://Scripts/Title/Splash.cs" id="5_x2pfe"]
+[ext_resource type="Script" uid="uid://bumwgt88elwgg" path="res://Scripts/Title/Static.cs" id="6_k1y01"]
+[ext_resource type="Texture2D" uid="uid://4euo5osduuwo" path="res://Sprites/TitleScreen/Button Icon.png" id="7_4blwa"]
+[ext_resource type="Script" uid="uid://do6pfkvkhvtwe" path="res://Scripts/Title/EventButtonHandler.cs" id="8_vqgqr"]
+[ext_resource type="SpriteFrames" uid="uid://c64eiqehwtcak" path="res://Sprites/Frames/title.tres" id="9_pcucl"]
+[ext_resource type="Script" uid="uid://bk07d7hgivs4s" path="res://Scripts/Title/Switcher.cs" id="10_2txeq"]
+[ext_resource type="Texture2D" uid="uid://uny5hcupcpv" path="res://Sprites/TitleScreen/LOGO.png" id="11_2ia2x"]
+[ext_resource type="Script" uid="uid://b8662mywslgpp" path="res://Scripts/Title/Blackout.cs" id="12_1hrlb"]
+[ext_resource type="AudioStream" uid="uid://ddsn74snd03j6" path="res://Audio/PowerOutageDef.mp3" id="13_q8b6m"]
+
+[sub_resource type="Gradient" id="Gradient_nrw4y"]
+colors = PackedColorArray(0, 0, 0, 0, 0.34509805, 0.57254905, 0, 0.5529412)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yv51t"]
+noise_type = 4
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1ywie"]
+width = 2304
+height = 1296
+noise = SubResource("FastNoiseLite_yv51t")
+color_ramp = SubResource("Gradient_nrw4y")
+seamless = true
+
+[node name="TitleScreen" type="Node2D" unique_id=2087313910]
+
+[node name="SingletonData" type="Node" parent="." unique_id=2065795517]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1574507090]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=282035242]
+stream = ExtResource("1_o1e67")
+script = ExtResource("2_ycay6")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1405581008]
+texture = ExtResource("3_bsy20")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=697107305]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=1044948973]
+custom_minimum_size = Vector2(1152, 648)
+custom_maximum_size = Vector2(1152, 648)
+offset_right = 1674.0
+offset_bottom = 942.0
+stream = ExtResource("4_o1e67")
+autoplay = true
+expand = true
+script = ExtResource("5_x2pfe")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=842987606]
+
+[node name="Static" type="Sprite2D" parent="." unique_id=1015476077]
+z_index = 10
+scale = Vector2(5.2994795, 5.2500005)
+texture = SubResource("NoiseTexture2D_1ywie")
+hframes = 6
+vframes = 6
+script = ExtResource("6_k1y01")
+
+[node name="Control" type="Control" parent="." unique_id=1102501401]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = 223.0
+offset_top = 65.0
+offset_right = 551.0
+offset_bottom = 106.0
+
+[node name="Continue" type="Button" parent="Control" unique_id=615317140]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 376.0
+offset_bottom = 71.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 45
+text = "  CONTINUE"
+icon = ExtResource("7_4blwa")
+flat = true
+alignment = 0
+language = "English"
+script = ExtResource("8_vqgqr")
+eventName = "Continue"
+hideIfJustStarted = true
+
+[node name="New game" type="Button" parent="Control" unique_id=1210761458]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 405.0
+offset_bottom = 121.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 45
+text = "  NEW GAME"
+icon = ExtResource("7_4blwa")
+flat = true
+alignment = 0
+script = ExtResource("8_vqgqr")
+eventName = "NewGame"
+
+[node name="Select night" type="Button" parent="Control" unique_id=154745294]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 483.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 45
+text = "  SELECT NIGHT"
+icon = ExtResource("7_4blwa")
+flat = true
+alignment = 0
+script = ExtResource("8_vqgqr")
+
+[node name="Settings" type="Button" parent="Control" unique_id=829781361]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 483.0
+offset_bottom = 221.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 45
+text = "  SETTINGS"
+icon = ExtResource("7_4blwa")
+flat = true
+alignment = 0
+script = ExtResource("8_vqgqr")
+
+[node name="Extras" type="Button" parent="Control" unique_id=1024223579]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 483.0
+offset_bottom = 271.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 45
+text = "  EXTRAS"
+icon = ExtResource("7_4blwa")
+flat = true
+alignment = 0
+script = ExtResource("8_vqgqr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=732831340]
+position = Vector2(-309, 447)
+scale = Vector2(1.1373171, 1.137317)
+sprite_frames = ExtResource("9_pcucl")
+script = ExtResource("10_2txeq")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=2027009662]
+color = Color(0.13421881, 0.2445508, 0, 1)
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=1222078751]
+position = Vector2(247, -162)
+scale = Vector2(0.4348509, 0.39347735)
+texture = ExtResource("11_2ia2x")
+
+[node name="Blackout" type="Sprite2D" parent="." unique_id=247912060]
+visible = false
+z_index = 11
+texture = ExtResource("3_bsy20")
+script = ExtResource("12_1hrlb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Blackout" unique_id=144018232]
+stream = ExtResource("13_q8b6m")

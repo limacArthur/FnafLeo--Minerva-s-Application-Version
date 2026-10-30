@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dy5ga31je160n"]
+
+[ext_resource type="Texture2D" uid="uid://ern4wmyadky7" path="res://Sprites/TitleScreen/Tittle bakcground.png" id="1_3edat"]
+[ext_resource type="FontFile" uid="uid://0dpo1k4u30ff" path="res://Fonts/Orbitron-Bold.ttf" id="2_rrrc0"]
+[ext_resource type="Script" uid="uid://xk4ou4g8jojr" path="res://Scripts/Title/NightTextLabel.cs" id="3_vmpge"]
+[ext_resource type="Script" uid="uid://cojwgu4w8xj16" path="res://Scripts/Title/IntroBlackout.cs" id="4_d0kpp"]
+[ext_resource type="AudioStream" uid="uid://cjiud3ebnb47f" path="res://Audio/Night intro wav.wav" id="5_u3s32"]
+
+[node name="Intro" type="Node2D" unique_id=839732771]
+
+[node name="TittleBakcground" type="Sprite2D" parent="." unique_id=778078794]
+position = Vector2(600, 300)
+texture = ExtResource("1_3edat")
+
+[node name="Control" type="Control" parent="." unique_id=1493696369]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+pivot_offset = Vector2(576, 324)
+
+[node name="Label" type="Label" parent="Control" unique_id=721294274]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 304.5
+offset_right = 633.0
+offset_bottom = 343.5
+theme_override_fonts/font = ExtResource("2_rrrc0")
+theme_override_font_sizes/font_size = 30
+text = "NIGHT "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_vmpge")
+
+[node name="Blackout" type="Sprite2D" parent="." unique_id=895806480]
+position = Vector2(1200, 600)
+texture = ExtResource("1_3edat")
+script = ExtResource("4_d0kpp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1434232804]
+stream = ExtResource("5_u3s32")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1776528258]

@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c64eiqehwtcak"]
+
+[ext_resource type="Texture2D" uid="uid://bf8wkknr3bah0" path="res://Sprites/Animatronics/Rabbit/rabbit.png" id="1_mdlru"]
+[ext_resource type="Texture2D" uid="uid://bo6q124h6vq8j" path="res://Sprites/Animatronics/Wraith/wraith jumpscare.png" id="2_i33pi"]
+[ext_resource type="Texture2D" uid="uid://chdsp3b7cu72q" path="res://Sprites/Animatronics/Dog/Worn Animatronic Dog Mascot.png" id="3_4jba0"]
+[ext_resource type="Texture2D" uid="uid://yk05jdj73naq" path="res://Sprites/Animatronics/Cow/Cow jumpscare.png" id="4_axjxe"]
+[ext_resource type="Texture2D" uid="uid://dt2hw2yqobsvf" path="res://Sprites/Animatronics/Cow/cow.png" id="5_ipj1g"]
+[ext_resource type="Texture2D" uid="uid://b6ry5ykrneiwu" path="res://Sprites/Animatronics/Dog/Cute Creepy Animatronic Dog.png" id="6_2pxey"]
+[ext_resource type="Texture2D" uid="uid://cviy5b01rjo0i" path="res://Sprites/Animatronics/Rabbit/Rabbit jumpscare.png" id="7_timll"]
+[ext_resource type="Texture2D" uid="uid://tvem2duf0euh" path="res://Sprites/Animatronics/Wraith/wraith.png" id="8_vdtj3"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mdlru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i33pi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4jba0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_axjxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ipj1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2pxey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_timll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vdtj3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

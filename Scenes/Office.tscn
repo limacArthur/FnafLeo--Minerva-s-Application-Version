@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://ssqkxi7bg833"]
+
+[ext_resource type="Script" uid="uid://c76y2vk32dhc7" path="res://Scripts/Environment/MainLight.cs" id="1_t43tj"]
+[ext_resource type="Texture2D" uid="uid://dyrxua3vxj6cw" path="res://Sprites/Enrivonment/Office cover.png" id="1_um8f5"]
+[ext_resource type="Script" uid="uid://bfnop1ouxhbet" path="res://Scripts/Managers/DoorManager.cs" id="2_0d164"]
+[ext_resource type="Texture2D" uid="uid://bqescyhf4ordm" path="res://Sprites/Actives/door.png" id="2_ccyme"]
+[ext_resource type="Texture2D" uid="uid://d4ii366spf2r" path="res://Sprites/Actives/LightSpriteSheet.png" id="3_4f0fq"]
+[ext_resource type="AudioStream" uid="uid://di8dooe67v2fd" path="res://Audio/tinnitus.mp3" id="3_chwbs"]
+[ext_resource type="Script" uid="uid://c6g4caa0hpwk3" path="res://Scripts/Managers/HeatManager.cs" id="3_k8msm"]
+[ext_resource type="Script" uid="uid://dahhqco2fyf20" path="res://Scripts/Managers/LightControl.cs" id="5_gnkyl"]
+[ext_resource type="Script" uid="uid://delf4uuribkng" path="res://Scripts/Managers/EnergyMananger.cs" id="6_gnkyl"]
+[ext_resource type="Script" uid="uid://c5d48ujjgh4sg" path="res://Scripts/Control/DoorControl.cs" id="7_gldt3"]
+[ext_resource type="AudioStream" uid="uid://ddsn74snd03j6" path="res://Audio/PowerOutageDef.mp3" id="9_0u7kn"]
+[ext_resource type="Script" uid="uid://dkiidyjh8ej6d" path="res://Scripts/Control/Monitor.cs" id="11_3g47s"]
+[ext_resource type="Script" uid="uid://myqjx4d48qbt" path="res://Scripts/Control/CameraControl.cs" id="12_541ak"]
+[ext_resource type="Script" uid="uid://cha52n3bsq6bb" path="res://Scripts/Control/Switch.cs" id="13_i4f5g"]
+[ext_resource type="AudioStream" uid="uid://dov0pdcldejt5" path="res://Audio/light.mp3" id="15_6b8ke"]
+[ext_resource type="AudioStream" uid="uid://bhn7godss8rse" path="res://Audio/door.mp3" id="16_k0xf6"]
+[ext_resource type="Script" uid="uid://bymvddf4tmttg" path="res://Scripts/HUD/EnergyBar.cs" id="17_2uv6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k41lo"]
+size = Vector2(36, 52)
+
+[sub_resource type="Theme" id="Theme_jptpv"]
+
+[node name="Office" type="Node2D" unique_id=1469492621]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1662000798]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=238328518]
+zoom = Vector2(1.285, 1.285)
+script = ExtResource("12_541ak")
+cameraLimit = 190.0
+ControlModeMouse = true
+cameraMovementLimit = 50.0
+cameraSpeed = 250.0
+
+[node name="Main" type="Node" parent="." unique_id=1459767571]
+
+[node name="MainLight" type="DirectionalLight2D" parent="Main" unique_id=848331264]
+energy = 20.0
+script = ExtResource("1_t43tj")
+on = true
+
+[node name="OfficeCover" type="Sprite2D" parent="Main" unique_id=180611739]
+modulate = Color(0.096204735, 0.09620475, 0.096204735, 1)
+texture = ExtResource("1_um8f5")
+
+[node name="BackLight" type="DirectionalLight2D" parent="Main" unique_id=652957838]
+visible = false
+position = Vector2(0, 0.815)
+color = Color(4.813075e-08, 0.30286106, 0.4715712, 1)
+energy = 1.18
+
+[node name="Tinnitus" type="AudioStreamPlayer" parent="Main" unique_id=1463934320]
+stream = ExtResource("3_chwbs")
+
+[node name="BlackoutSd" type="AudioStreamPlayer" parent="Main" unique_id=1357307216]
+stream = ExtResource("9_0u7kn")
+
+[node name="Doors" type="Node" parent="." unique_id=481592702]
+script = ExtResource("2_0d164")
+speed = 300.0
+
+[node name="LeftDoor" type="Sprite2D" parent="Doors" unique_id=893616584]
+modulate = Color(0.038397167, 0.038397167, 0.03839716, 1)
+z_index = -1
+position = Vector2(-472, 9.999998)
+scale = Vector2(0.8727273, 0.7025)
+texture = ExtResource("2_ccyme")
+flip_h = true
+script = ExtResource("7_gldt3")
+sidePath = "LeftDoorSwitch"
+yLimit = -395.0
+yFloor = 10.0
+speed = 110.0
+
+[node name="RightDoor" type="Sprite2D" parent="Doors" unique_id=763169454]
+modulate = Color(0.038397167, 0.038397167, 0.03839716, 1)
+z_index = -1
+position = Vector2(474.00003, 9.999999)
+scale = Vector2(0.8727273, 0.7025)
+texture = ExtResource("2_ccyme")
+script = ExtResource("7_gldt3")
+sidePath = "RightDoorSwitch"
+yLimit = -395.0
+yFloor = 10.0
+
+[node name="Heat" type="Node" parent="." unique_id=890422439]
+script = ExtResource("3_k8msm")
+season = 3
+
+[node name="HeatLight" type="DirectionalLight2D" parent="Heat" unique_id=16912259]
+color = Color(0.87931156, 0.28769046, 0, 1)
+energy = 0.0
+
+[node name="Lights" type="Node" parent="." unique_id=1116674362]
+script = ExtResource("5_gnkyl")
+
+[node name="LeftLight" type="Sprite2D" parent="Lights" unique_id=274449955]
+modulate = Color(0.03839717, 0.03839716, 0.038397186, 1)
+z_index = -2
+position = Vector2(-280, 32)
+texture = ExtResource("3_4f0fq")
+hframes = 6
+frame = 5
+
+[node name="RightLight" type="Sprite2D" parent="Lights" unique_id=17218189]
+modulate = Color(0.03839717, 0.03839716, 0.038397186, 1)
+z_index = -2
+position = Vector2(280, 32)
+texture = ExtResource("3_4f0fq")
+hframes = 6
+frame = 5
+
+[node name="Energy" type="Node" parent="." unique_id=1113806238]
+script = ExtResource("6_gnkyl")
+
+[node name="Monitor" type="Node" parent="." unique_id=383413791]
+script = ExtResource("11_3g47s")
+
+[node name="Switch" type="Node" parent="." unique_id=2098103623]
+
+[node name="DoorAudio" type="AudioStreamPlayer" parent="Switch" unique_id=653197623]
+stream = ExtResource("16_k0xf6")
+volume_db = -2.0
+
+[node name="LightAudio" type="AudioStreamPlayer" parent="Switch" unique_id=1595580433]
+stream = ExtResource("15_6b8ke")
+volume_db = -2.0
+
+[node name="LeftLightSwitch" type="Node" parent="Switch" unique_id=791392816]
+
+[node name="Area2D" type="Area2D" parent="Switch/LeftLightSwitch" unique_id=8411534]
+position = Vector2(-601, 20)
+script = ExtResource("13_i4f5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/LeftLightSwitch/Area2D" unique_id=864439702]
+position = Vector2(-3, 4)
+shape = SubResource("RectangleShape2D_k41lo")
+
+[node name="RightDoorSwitch" type="Node" parent="Switch" unique_id=1645524383]
+
+[node name="Area2D" type="Area2D" parent="Switch/RightDoorSwitch" unique_id=1958577950]
+position = Vector2(609, -53)
+script = ExtResource("13_i4f5g")
+isDoor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/RightDoorSwitch/Area2D" unique_id=1371665741]
+position = Vector2(-3, 4)
+shape = SubResource("RectangleShape2D_k41lo")
+
+[node name="LeftDoorSwitch" type="Node" parent="Switch" unique_id=265175852]
+
+[node name="Area2D" type="Area2D" parent="Switch/LeftDoorSwitch" unique_id=810855902]
+position = Vector2(-601, -54)
+script = ExtResource("13_i4f5g")
+isDoor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/LeftDoorSwitch/Area2D" unique_id=1819986385]
+position = Vector2(-3, 4)
+shape = SubResource("RectangleShape2D_k41lo")
+
+[node name="RightLightSwitch" type="Node" parent="Switch" unique_id=1182592369]
+
+[node name="Area2D" type="Area2D" parent="Switch/RightLightSwitch" unique_id=214652077]
+position = Vector2(609, 20)
+script = ExtResource("13_i4f5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/RightLightSwitch/Area2D" unique_id=1437373039]
+position = Vector2(-3, 4)
+shape = SubResource("RectangleShape2D_k41lo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341398705]
+layer = 7
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1237397961]
+z_index = 6
+z_as_relative = false
+offset_left = -400.0
+offset_top = 220.0
+offset_right = -100.0
+offset_bottom = 240.0
+pivot_offset = Vector2(150, 10)
+theme = SubResource("Theme_jptpv")
+theme_override_colors/font_color = Color(1.3957917e-06, 0.6611451, 0.42672393, 1)
+max_value = 2000.0
+show_percentage = false
+script = ExtResource("17_2uv6j")

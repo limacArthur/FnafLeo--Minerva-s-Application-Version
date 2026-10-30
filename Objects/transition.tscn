@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dfvda1x6bgadh"]
+
+[ext_resource type="Texture2D" uid="uid://ern4wmyadky7" path="res://Sprites/TitleScreen/Tittle bakcground.png" id="1_q1l2k"]
+[ext_resource type="Script" uid="uid://pq5eggxu5w4s" path="res://Scripts/Tech/Transition.cs" id="2_3p6x7"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=350556564]
+z_index = 100
+scale = Vector2(5, 5)
+texture = ExtResource("1_q1l2k")
+script = ExtResource("2_3p6x7")
